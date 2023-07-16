@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Class CaesarCipher will obfuscate a message. The constructor accepts two arguments, first the message, and second the number of positions to shift left or right. All alphabetic characters will be shifted to the left for a negative value or to the right for a positive value.
 class CaesarCipher
   attr_reader :message, :shift
 
@@ -11,7 +14,11 @@ class CaesarCipher
 
     @message = message
     @shift = shift
+
+    obfuscate
   end
+
+  private
 
   def obfuscate
     new_message = []
@@ -21,8 +28,6 @@ class CaesarCipher
     end
     @message = new_message.join
   end
-
-  private
 
   def ascii_shift(char)
     if char >= UPPER_START && char <= UPPER_END # Uppercase Letters
